@@ -1,15 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$version = "v1.18"
+$version = "v1.19"
 $url_base = "https://github.com/scaleway/scaleway-cli/releases/download/${version}/"
 $url        = "${url_base}/scw-windows-i386.exe"
 $url64      = "${url_base}/scw-windows-amd64.exe"
 
 $packageArgs = @{
-  checksum      = '090B62518347B0689843FD25DDA956838E2FF818E6CCF6E92D816CD3BD3A1D3A'
+  checksum      = '883C8A66CD5A35D85FA89B1FF5705A38CBB7AC6CADB592BD404DC7C52C3E54D3'
   checksumType  = 'sha256'
-  checksum64    = '32628C57F6F6AD47F0287B7D567A7AE637B9086EA5304AC810A63EF7CEF1C533'
+  checksum64    = '55EB14959AFF9374E282B3DBDD0E17FE84A604C91BF9B5B6507CB02ECDDC0C25'
   checksumType64= 'sha256'
 
 }
