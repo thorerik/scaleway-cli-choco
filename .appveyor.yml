@@ -19,7 +19,7 @@ environment:
   au_test_groups: 1
 
   # Github token to commit pushed packages to repository
-  github_user_repo: {github_user}/{repository}
+  github_user_repo: thorerik/scaleway-cli-choco
   github_api_key:
     secure: O4iycfJdDF6CgTFsECrLnpfAN7TeyidAgZ4tgmNjT1YIztwovgpPMJ9bBpNEO9Dr
 
