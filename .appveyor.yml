@@ -21,7 +21,7 @@ environment:
   # Github token to commit pushed packages to repository
   github_user_repo: thorerik/scaleway-cli-choco
   github_api_key:
-    secure: O4iycfJdDF6CgTFsECrLnpfAN7TeyidAgZ4tgmNjT1YIztwovgpPMJ9bBpNEO9Dr
+    secure: 9EWSSdOD/4yH2Mme6gIYa/fUmeFnqYo+O1knf3MHMBgy8Bbjq8s0AGy2UkWvWZgs
 
 
   # Mail credentials - for error notifications
@@ -33,12 +33,13 @@ environment:
   #mail_port: 587
   #mail_enablessl: true
 
+  github_user: thorerik
   # ID of the gist used to save run results - create a gist under the github_user (secret or not) and grab the id - https://gist.github.com/name/id
   # Optional, leave empty to create anonymous gist
-  gist_id:
+  gist_id: 82d87d3752d48cf3b0dc029fa6fa2014
 
   # Force test: gist id for test results
-  gist_id_test:
+  gist_id_test: 
 
   # Chocolatey API key - to push updated packages
   api_key:
