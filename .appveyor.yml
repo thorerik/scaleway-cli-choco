@@ -2,7 +2,7 @@
 
 version: '{build}'
 max_jobs: 1
-image: WMF 5
+#image: WMF 5
 # History plugin requires complete log
 #clone_depth: 5
 branches:
@@ -13,7 +13,7 @@ branches:
 
 environment:
   # Set au version to use or omit to use the latest. Specify branch name to use development version from Github
-  au_version:
+  #au_version:
   au_push: true
   # Force test: use 1 to test all, or N to split testing into N groups
   au_test_groups: 1
@@ -21,7 +21,7 @@ environment:
   # Github token to commit pushed packages to repository
   github_user_repo: {github_user}/{repository}
   github_api_key:
-    secure: O4iycfJdDF6CgTFsECrLnpfAN7TeyidAgZ4tgmNjT1YIztwovgpPMJ9bBpNEO9Dr #https://ci.appveyor.com/tools/encrypt
+    secure: O4iycfJdDF6CgTFsECrLnpfAN7TeyidAgZ4tgmNjT1YIztwovgpPMJ9bBpNEO9Dr
 
 
   # Mail credentials - for error notifications
@@ -42,7 +42,7 @@ environment:
 
   # Chocolatey API key - to push updated packages
   api_key:
-    secure: C2K4ECjDpl2h//CF9o9jLEzfDyharJhp4HWOlOvX+mrY8c0651wim6pJIWcrC13C # https://ci.appveyor.com/tools/encrypt
+    secure: C2K4ECjDpl2h//CF9o9jLEzfDyharJhp4HWOlOvX+mrY8c0651wim6pJIWcrC13C
 
 init:
 - git config --global user.email "chocolatey@thorerik.com"
