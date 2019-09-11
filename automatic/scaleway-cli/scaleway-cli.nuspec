@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <id>scw-cli</id>
-    <version>1.18</version>
+    <id>scaleway-cli</id>
+    <version>1.20</version>
     <packageSourceUrl>https://github.com/thorerik/scaleway-cli-choco</packageSourceUrl>
     <owners>Thor Erik</owners>
     <title>scaleway-cli (Install)</title>
