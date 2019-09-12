@@ -25,6 +25,7 @@ function getReleases {
 
     $version_temp = $download_page.links | Where-Object href -match "scw_(\d*\.\d*)_amd64.deb"
     $version = $version_temp[0] -split '_' | Select-Object -Last 1 -Skip 1
+    
     $url32 = 'https://github.com' + $url[0]
     $url64 = 'https://github.com' + $url[1]
     $checksum64 = $checksums[3].toString().trim()
