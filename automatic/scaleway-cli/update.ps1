@@ -37,7 +37,6 @@ function getReleases {
 }
 
 function global:au_GetLatest {
-    $Latest = getReleases
-    return $Latest
+    return getReleases
 }
 update
