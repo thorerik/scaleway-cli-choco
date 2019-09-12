@@ -1,9 +1,6 @@
 import-module au
 
 $releases = 'https://github.com/scaleway/scaleway-cli/releases'
-$version = ""
-$url32 = ""
-$url64 = ""
 
 function global:au_SearchReplace {
     @{
