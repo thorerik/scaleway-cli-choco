@@ -15,7 +15,7 @@ function global:au_SearchReplace {
 
 function getReleases {
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
-    $re  = "scw-windows-(i386|amd64).exe"
+    $re  = "scw-(\d+-\d+-\d+).*-windows-x86_64.exe"
     $url = $download_page.links | Where-Object href -match $re | Select-Object -First 2 -expand href
 
     $checksums_url_partial = $download_page.links | Where-Object href -Match "SHA256SUMS" | Select-Object -First 1 -ExpandProperty href
@@ -23,8 +23,8 @@ function getReleases {
     $checksums_result = Invoke-WebRequest -Uri $checksums_url -UseBasicParsing
     $checksums = [regex]::Matches($checksums_result.toString(), "\n(.+)\sscw-windows-(?:i386|amd64).exe\n").captures.groups
 
-    $version_temp = $download_page.links | Where-Object href -match "scw_(\d*\.\d*)_amd64.deb"
-    $version = $version_temp[0] -split '_' | Select-Object -Last 1 -Skip 1
+    $version_temp = $download_page.links | Where-Object href -match $re
+    $version = $version_temp[0] -split '-' | Select-Object -Last 1 -Skip 1
     
     $url32 = 'https://github.com' + $url[0]
     $url64 = 'https://github.com' + $url[1]
