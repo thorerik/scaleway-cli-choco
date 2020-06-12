@@ -6,8 +6,6 @@ function global:au_SearchReplace {
     @{
         'tools\chocolateyInstall.ps1' = @{
             "(^[$]url64\s*=\s*)('.*')"      = "`$1'$($Latest.URL64)'"
-            "(^[$]url32\s*=\s*)('.*')"      = "`$1'$($Latest.URL32)'"
-            "(^[$]checksum32\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
             "(^[$]checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
         }
      }
@@ -16,22 +14,19 @@ function global:au_SearchReplace {
 function getReleases {
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
     $re  = "scw-(\d+-\d+-\d+).*-windows-x86_64.exe"
-    $url = $download_page.links | Where-Object href -match $re | Select-Object -First 2 -expand href
+    $url = $download_page.links | Where-Object href -match $re | Select-Object -First 1 -expand href
 
     $checksums_url_partial = $download_page.links | Where-Object href -Match "SHA256SUMS" | Select-Object -First 1 -ExpandProperty href
     $checksums_url = 'https://github.com' + $checksums_url_partial
     $checksums_result = Invoke-WebRequest -Uri $checksums_url -UseBasicParsing
-    $checksums = [regex]::Matches($checksums_result.toString(), "\n(.+)\sscw-windows-(?:i386|amd64).exe\n").captures.groups
+    $checksums = [regex]::Matches($checksums_result.toString(), "\n(.+)\sscw-(\d+-\d+-\d+(?:.+))-windows-x86_64.exe\n").captures.groups
 
-    $version_temp = $download_page.links | Where-Object href -match $re
-    $version = $version_temp[0] -split '-' | Select-Object -Last 1 -Skip 1
+    $version = $checksums[2] -split '-' -join '.'
     
-    $url32 = 'https://github.com' + $url[0]
-    $url64 = 'https://github.com' + $url[1]
-    $checksum64 = $checksums[3].toString().trim()
-    $checksum32 = $checksums[1].toString().trim()
+    $url64 = 'https://github.com' + $url
+    $checksum64 = $checksums[1].toString().trim()
 
-    return @{URL32 = $url32; URL64 = $url64; Version = $version; Checksum32 = $checksum32; Checksum64 = $checksum64}
+    return @{URL64 = $url64; Version = $version; Checksum64 = $checksum64}
 }
 
 function global:au_GetLatest {
