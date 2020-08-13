@@ -9,3 +9,4 @@ $checksum64    = '83aa97822ccec83d0c886d7f2894aaf9938a7703a99e716beb912a44d8a3e6
 $checksumType64= 'sha256'
 
 Get-ChocolateyWebFile -PackageName 'scaleway-cli' -FileFullPath "$toolsDir\scw.exe" -Url $url32 -Url64 $url64 -Checksum $checksum32 -ChecksumType $checksumType32 -Checksum64 $checksum64 -ChecksumType64 $checksumType64
+
