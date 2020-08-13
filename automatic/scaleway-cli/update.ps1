@@ -17,10 +17,10 @@ function getReleases {
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 
     $re32  = "scw-(\d+-\d+-\d+).*-windows-386.exe"
-    $url32 = $download_page.links | Where-Object href -match $re | Select-Object -First 1 -expand href
+    $url32 = $download_page.links | Where-Object href -match $re32 | Select-Object -First 1 -expand href
 
     $re64  = "scw-(\d+-\d+-\d+).*-windows-x86_64.exe"
-    $url64 = $download_page.links | Where-Object href -match $re | Select-Object -First 1 -expand href
+    $url64 = $download_page.links | Where-Object href -match $re64 | Select-Object -First 1 -expand href
 
     $checksums_url_partial = $download_page.links | Where-Object href -Match "SHA256SUMS" | Select-Object -First 1 -ExpandProperty href
 
