@@ -12,6 +12,8 @@
     <licenseUrl>https://github.com/scaleway/scaleway-cli/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- Apache, assume acceptance -->
     <projectSourceUrl>https://github.com/scaleway/scaleway-cli</projectSourceUrl>
+    <releaseNotes>https://github.com/scaleway/scaleway-cli/blob/master/CHANGELOG.md</releaseNotes>
+    <iconUrl>https://raw.githubusercontent.com/scaleway/scaleway-cli/master/docs/static_files/cli-artwork.png</iconUrl>
     <tags>scaleway-cli scaleway scw</tags>
     <summary>Interact with Scaleway API from the command line.</summary>
     <description>
