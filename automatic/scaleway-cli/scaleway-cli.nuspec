@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/scaleway/scaleway-cli</projectUrl>
     <copyright>Scaleway</copyright>
     <licenseUrl>https://github.com/scaleway/scaleway-cli/blob/master/LICENSE</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- MIT, assume acceptance -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance> <!-- Apache, assume acceptance -->
     <projectSourceUrl>https://github.com/scaleway/scaleway-cli</projectSourceUrl>
     <tags>scaleway-cli scaleway scw</tags>
     <summary>Interact with Scaleway API from the command line.</summary>
