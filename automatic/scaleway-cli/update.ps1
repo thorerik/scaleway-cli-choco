@@ -16,10 +16,10 @@ function getReleases {
 
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 
-    $re32  = "scw-(\d+\.\d+\.\d+).*-windows-386.exe"
+    $re32  = "scaleway-cli_(\d+\.\d+\.\d+).*_windows_386.exe"
     $url32 = $download_page.links | Where-Object href -match $re32 | Select-Object -First 1 -expand href
 
-    $re64  = "scw-(\d+\.\d+\.\d+).*-windows-x86_64.exe"
+    $re64  = "scaleway-cli_(\d+\.\d+\.\d+).*_windows_amd64.exe"
     $url64 = $download_page.links | Where-Object href -match $re64 | Select-Object -First 1 -expand href
 
     $checksums_url_partial = $download_page.links | Where-Object href -Match "SHA256SUMS" | Select-Object -First 1 -ExpandProperty href
@@ -28,8 +28,8 @@ function getReleases {
     $checksums_result = Invoke-WebRequest -Uri $checksums_url -UseBasicParsing
 
     # Fetch checksums for each variant and gather version number
-    $checksum64 = [regex]::Matches($checksums_result.toString(), "(.+)\s+scw-(\d+\.\d+\.\d+)-windows-x86_64.exe").captures.groups
-    $checksum32 = [regex]::Matches($checksums_result.toString(), "(.+)\s+scw-(\d+\.\d+\.\d+)-windows-386.exe").captures.groups
+    $checksum64 = [regex]::Matches($checksums_result.toString(), "(.+)\s+scaleway-cli_(\d+\.\d+\.\d+)_windows_amd64.exe").captures.groups
+    $checksum32 = [regex]::Matches($checksums_result.toString(), "(.+)\s+scaleway-cli_(\d+\.\d+\.\d+)_windows_386.exe").captures.groups
 
     $version = $checksum32[2] -split '-' -join '.'
 
