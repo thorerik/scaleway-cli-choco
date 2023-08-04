@@ -1,5 +1,2 @@
-﻿[![](https://ci.appveyor.com/api/projects/status/github/thorerik/scaleway-cli-choco?svg=true)](https://ci.appveyor.com/project/thorerik/scaleway-cli-choco)
-[Update status](https://gist.github.com/thorerik/82d87d3752d48cf3b0dc029fa6fa2014)
-
-## Summary
-Chocolatey package for Scaleway-cli(scw)
+# Project is no longer active
+Scaleway has taken over maintenance and is found [here](https://github.com/scaleway/chocolatey/tree/master/_auto/scaleway-cli)
